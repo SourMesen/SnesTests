@@ -1,0 +1,41 @@
+cc65\ca65 -g src\bg.s
+cc65\ca65 -g src\blarggapu.s
+cc65\ca65 -g src\init.s
+cc65\ca65 -g src\player.s
+cc65\ca65 -g src\ppuclear.s
+cc65\ca65 -g src\snesheader.s
+cc65\ca65 -g src\global.inc
+cc65\ca65 -g src\snes.inc
+cc65\ca65 -g src\spcimage.s
+cc65\ca65 -g src\testhelper.s
+cc65\ca65 -g src\test_imm.s
+cc65\ca65 -g src\test_stk.s
+cc65\ca65 -g src\test_imp.s
+cc65\ca65 -g src\test_branch.s
+cc65\ca65 -g src\test_abs.s
+cc65\ca65 -g src\test_abs_store.s
+cc65\ca65 -g src\test_abslng.s
+cc65\ca65 -g src\test_abslng_idx_x.s
+cc65\ca65 -g src\test_abs_idx_x.s
+cc65\ca65 -g src\test_abs_idx_y.s
+cc65\ca65 -g src\test_abs_rmw.s
+cc65\ca65 -g src\test_abs_idx_x_rmw.s
+cc65\ca65 -g src\test_acc_rmw.s
+cc65\ca65 -g src\test_direct.s
+cc65\ca65 -g src\test_direct_idx_x_ind.s
+cc65\ca65 -g src\test_direct_ind_idx_y.s
+cc65\ca65 -g src\test_direct_ind_idx_y_lng.s
+cc65\ca65 -g src\test_direct_ind_lng.s
+cc65\ca65 -g src\test_direct_ind.s
+cc65\ca65 -g src\test_direct_idx_x.s
+cc65\ca65 -g src\test_direct_idx_y.s
+cc65\ca65 -g src\test_direct_store.s
+cc65\ca65 -g src\test_direct_rmw.s
+cc65\ca65 -g src\test_direct_idx_x_rmw.s
+cc65\ca65 -g src\test_stk_rel.s
+cc65\ca65 -g src\test_stk_rel_ind_idx_y.s
+cc65\ca65 -g src\test_move.s
+cc65\ca65 -g src\main.s
+
+cc65\ld65 -m map.txt -C lorom256k.cfg --dbgfile op_timing_test_v2.dbg src\global.o src\snes.o src\bg.o src\blarggapu.o src\init.o src\player.o src\ppuclear.o src\snesheader.o src\spcimage.o src\testhelper.o src\test_imm.o src\test_stk.o src\test_imp.o src\test_branch.o src\test_abs.o src\test_abs_store.o src\test_abslng.o src\test_abslng_idx_x.o src\test_abs_idx_x.o src\test_abs_idx_y.o src\test_abs_rmw.o src\test_abs_idx_x_rmw.o src\test_acc_rmw.o src\test_direct.o src\test_direct_idx_x_ind.o src\test_direct_ind_idx_y.o src\test_direct_ind_idx_y_lng.o src\test_direct_ind_lng.o src\test_direct_ind.o src\test_direct_idx_x.o src\test_direct_idx_y.o src\test_direct_store.o src\test_direct_rmw.o src\test_direct_idx_x_rmw.o src\test_stk_rel.o src\test_stk_rel_ind_idx_y.o src\test_move.o src\main.o -o op_timing_test_v2.sfc
+

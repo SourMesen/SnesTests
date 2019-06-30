@@ -1,0 +1,6 @@
+.vs
+*.o
+**/cc65/*
+*.zip
+*.dbg
+map.txt
