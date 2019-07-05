@@ -4,7 +4,7 @@
 
 ; ppuclear.s
 .global ppu_copy_oam, ppu_pack_oamhi, ppu_clear_oam
-.global ppu_copy, ppu_clear_nt, ppu_vsync, ppu_start_frame
+.global ppu_copy, ppu_clear_nt, ppu_vsync, ppu_start_frame, ppu_end_frame
 
 ; bg.s
 .global load_bg_tiles, draw_bg

@@ -62,7 +62,7 @@ endofstring:
   .else
     displayMessage label, 2, testNumber + 4
   .endif  
-  
+  setaxy16
   ldx testResults+testNumber*2
   jsl writeNumber
 .endscope
@@ -73,10 +73,12 @@ endofstring:
   setaxy16  
   jsl procName
 
-  setaxy16  
+  setaxy8
   lda valueOnIrq
-  ldx #number*2
+  ldx #(number*2)
   sta testResults, x
+  inx
+  stz testResults, x  
 .endmacro
 
 .macro testXM
@@ -107,21 +109,37 @@ endofstring:
 .endmacro
 
 .macro runDma mode, addr, length, dest, channels
-  seta8
-  lda #mode
-  sta DMAMODE
-  lda #dest
-  sta DMAPPUREG
-  setaxy16
-  lda #addr
-  sta DMAADDR
-.ifnblank length  
-  lda #length
-.else
-  txa
-.endif
-  sta DMALEN
-  sta DMAADDRBANK
-  lda #channels
-  sta COPYSTART
+  setxy8
+  ldx #mode
+  stx DMAMODE
+  ldx #dest
+  stx DMAPPUREG
+  setxy16
+  ldx #addr
+  stx DMAADDR
+  ldx #length
+  stx DMALEN
+  stx DMAADDRBANK
+  setxy8
+  ldx #channels
+  stx COPYSTART
+.endmacro
+
+;Same as runDma8, but writes to $420B with the M flag off (so it writes to 402B and then 402C)
+.macro runDma16 mode, addr, length, dest, channels
+  setxy8
+  ldx #mode
+  stx DMAMODE
+  ldx #dest
+  stx DMAPPUREG
+  setxy16
+  ldx #addr
+  stx DMAADDR
+  ldx #length
+
+  stx DMALEN
+  stx DMAADDRBANK
+  setxy16
+  ldx #channels
+  stx COPYSTART
 .endmacro

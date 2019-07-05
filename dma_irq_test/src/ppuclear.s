@@ -163,3 +163,17 @@ loop1:
 .endproc
 
 
+.proc ppu_end_frame
+  seta8
+  lda #$80
+  sta $4201
+waitendoframe:
+  lda $2137
+  lda $213D
+  sta $1555
+  lda $213D
+  lda $1555
+  cmp #224
+  bne waitendoframe
+  rtl
+.endproc
