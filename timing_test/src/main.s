@@ -367,10 +367,6 @@ notaletter:
   dex
   bne :-
   stz MEMSEL  
-  storeCounters 5
-  
-  lda #$00
-  sta MEMSEL
   rts
 .endproc
 

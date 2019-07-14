@@ -8,6 +8,5 @@ cc65\ca65 -g src\snesheader.s
 cc65\ca65 -g src\global.inc
 cc65\ca65 -g src\snes.inc
 cc65\ca65 -g src\spcimage.s
-cc65\ca65 -g src\testhelper.s
 
-cc65\ld65 -m map.txt -C lorom256k.cfg --dbgfile timing_test.dbg src\global.o src\snes.o src\bg.o src\blarggapu.o src\init.o src\main.o src\player.o src\ppuclear.o src\snesheader.o src\spcimage.o src\testhelper.o -o timing_test.sfc
+cc65\ld65 -m map.txt -C lorom256k.cfg --dbgfile timing_test.dbg src\global.o src\snes.o src\bg.o src\blarggapu.o src\init.o src\main.o src\player.o src\ppuclear.o src\snesheader.o src\spcimage.o -o timing_test.sfc
